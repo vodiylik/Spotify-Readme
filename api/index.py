@@ -97,7 +97,7 @@ def make_svg(spin, scan, theme, rainbow):
     """Render the HTML template with variables"""
     data = spotify_request("me/player/currently-playing")
     if data:
-        item = data["item"]
+        item = data.get("item")
     else:
         item = spotify_request(
             "me/player/recently-played?limit=1")["items"][0]["track"]
